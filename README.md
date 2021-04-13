@@ -5,11 +5,12 @@ Authentication is currently basic http. You'll need to generate a password from 
 
 ## Config & Install
 
+Default installation directory is `/usr/local/bin`.
+
 ```bash
 git clone https://github.com/Chocorean/ncc
-mv secrets_example.txt secrets.txt
-vim secrets.txt
-sudo ln -s $(pwd)/ncc/ncc.sh /usr/bin/local/ncc
+cd ncc
+bash install.sh [<bin_dir>]
 ```
 
 ## Supported features
