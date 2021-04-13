@@ -14,8 +14,8 @@ usage() {
 }
 
 upload() {
-  body=$(cat $1)
-  _curl PUT $BASE_URL/files/$USER/$2 $body
+  body=$(cat "$1")
+  _curl PUT "$BASE_URL/files/$USER/$2" "$body"
 }
 
 upload_usage() {
@@ -23,7 +23,7 @@ upload_usage() {
 }
 
 download() {
-  _curl GET $BASE_URL/files/$USER/$1 $2
+  _curl GET "$BASE_URL/files/$USER/$1" "$2"
 }
 
 download_usage() {
@@ -35,11 +35,10 @@ download_usage() {
 _curl() {
   if [[ "$1" == "PUT" ]]
   then
-    curl -ku $USER:$PASSWORD -X $1 $2 --data $3
+    curl -ku "$USER:$PASSWORD" -X "$1" "$2" --data "$3"
   elif [[ "$1" == "GET" ]]
   then
-    echo curl -ku $USER:$PASSWORD -X $1 $2 -o $3
-    curl -ku $USER:$PASSWORD -x $1 $2 -o $3
+    curl -ku "$USER:$PASSWORD" -x "$1" "$2" -o "$3"
   fi
 }
 
@@ -72,6 +71,6 @@ then
   upload $src $dst
 elif [[ "$subcommand" == "download" ]]
 then
-  download $src $dst
+  download "$src" "$dst"
 fi
 

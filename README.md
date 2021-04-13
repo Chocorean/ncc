@@ -24,6 +24,7 @@ sudo ln -s $(pwd)/ncc/ncc.sh /usr/bin/local/ncc
 * list a directory
 * create a directory
 * remove a directory
+* insecure mode should be optional
 
 ## If possible
 
